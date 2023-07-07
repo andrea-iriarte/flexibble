@@ -6,21 +6,22 @@ const User = g.model('User', {
   avatarUrl: g.url(),
   description: g.string().optional(),
   githubUrl: g.url().optional(),
-  linkedInUrl: g.url().optional(),
-  projects: g.relation(() => Project).list().optional(),
+  linkedinUrl: g.url().optional(),
+  projects: g.relation(() => Project).list().optional()
 
 })
 
 const Project = g.model('Project', {
   title: g.string().length({ min: 3 }),
-  description: g.string(),
+  description: g.string().optional(),
   image: g.url(),
   liveSiteUrl: g.url(),
-  githubUrl: g.url(),
   category: g.string().search(),
-  createdBy: g.relation(() => User)
+  createdBy: g.relation(() => User )
 })
 
-export default config ({
+
+export default config({
   schema: g
+  
 })
